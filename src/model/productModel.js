@@ -5,6 +5,6 @@ const productSchema = new mongoose.Schema({
     name:{type:String,required:true} ,
     disc:{type:String,required:true}
 })
-
+        
 
 export const Productmodels = mongoose.model("product",productSchema)
