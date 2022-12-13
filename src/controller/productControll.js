@@ -1,5 +1,6 @@
 import { Productmodels } from "../model/productModel.js";
 import StatusCodes from 'http-status-codes'
+import { model } from "mongoose";
 
 export async function productControll(req, res) {
   try {
@@ -26,8 +27,11 @@ export async function Fetchdata(req, res) {
 export async function FetchdatabyId (req,res)
 {
     try {
-        
+            let product = await Productmodels.findOne({proid:req.params.pid})
+            res.status(StatusCodes.OK).json(product)
     } catch (error) {
+
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({massage:"invalid code written by u arjun make it valid "})
         
     }
 }
